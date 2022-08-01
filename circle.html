@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <canvas id="myCanvas" width = "600px" height="600px" style="border:1px solid #d3d3d3;"> </canvas>
+</body>
+<script>
+    class Circle {
+        constructor(r, color){
+            this.radius = r;
+            this.color = color;
+        }
+        getRadius(){
+            return this.radius;
+        }
+        getArea(){
+            return this.radius * this.radius * Math.PI;
+        }
+    }
+    let circle1 = new Circle(5, 'blue');
+    document.write('bán kính là: ' + circle1.getRadius() + '<br>' + 'diện tích là: ' +  circle1.getArea().toFixed(3))
+    let canvas = document.getElementById('myCanvas');
+    let ctx = canvas.getContext('2d');
+    ctx.beginPath();
+    ctx.arc(100,100, circle1.getRadius(),0, 2 * Math.PI )
+    ctx.stroke()
+</script>
+</html>
